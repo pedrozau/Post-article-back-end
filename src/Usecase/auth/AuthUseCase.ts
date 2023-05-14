@@ -32,7 +32,12 @@ export class AuthUseCase {
         } 
 
         
-        return  await generateToken(checkEmail.id); 
+        const token = await generateToken(checkEmail.id); 
+
+        return {
+           "id":checkEmail.id,
+           "access_token": token
+        }
 
         
 
